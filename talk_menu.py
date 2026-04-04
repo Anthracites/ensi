@@ -1,6 +1,5 @@
 from states import STATE_MENU
 from storage import user_state
-from keyboards import get_menu_keyboard
 
 async def handle_talk_menu(update, context, user_id, text):
     if text == "Расскажи о космосе":

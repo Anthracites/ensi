@@ -1,0 +1,53 @@
+{
+  "language": "русский",
+  "error_massage": "Я тебя не понял. Пожалуйста, выбери кнопку из меню.",
+  "choose_an_option": "Выбери о чем хочешь поговорить:",
+
+    "language_menu": {
+  "buttons": {
+    "lang": { "label": "русский", "type": "state", "next_state": "main_menu" }
+  },
+  "answers": {
+    "lang": "Язык переключён на русский."
+  }
+},
+
+  "start_questions": {
+    "buttons": {
+      "ask_name": { "label": "Привет! Как тебя зовут?", "type": "answer" }
+    },
+    "answers": {
+      "ask_name": "Приятно познакомиться, {name}! Что хочешь узнать?"
+    }
+  },
+
+  "main_menu": {
+    "buttons": {
+      "who_are_you": { "label": "Расскажи о себе", "type": "answer" },
+      "age": { "label": "Сколько тебе дней", "type": "answer" },
+      "just_talk": { "label": "Просто поговорим", "type": "state", "next_state": "chat" },
+      "back_to_language_choose": {"label": "Вернуться к выбору языка", "type":"state", "next_state":"language_menu"}
+    },
+    "answers": {
+      "who_are_you": "Меня зовут Ensi. (Это сокращение от ensimäinen). Я люблю общаться и узнавать новое.",
+      "age": "Мне сейчас {days} дней.",
+      "just_talk": "О чём хочешь поговорить?",
+      "back_to_language_choose": "Возвращаю к выбору языка."
+    }
+  },
+
+  "chat": {
+    "buttons": {
+      "space": { "label": "Расскажи о космосе", "type": "answer" },
+      "joke": { "label": "Скажи шутку", "type": "answer" },
+      "picture": { "label": "Покажи смешную картинку", "type": "answer" },
+      "back": { "label": "Вернуться в меню", "type": "state", "next_state": "main_menu" }
+    },
+    "answers": {
+      "space": "Бланета (англ. Blanet) — гипотетический класс экзопланет, которые могут быть сформированы вокруг сверхмассивной чёрной дыры в центре галактик.",
+      "joke": "У тебя электрокар. Бросаешь водить?",
+      "picture": "owl.jpg",
+      "back": "Возвращаю тебя в меню!"
+    }
+  }
+}
