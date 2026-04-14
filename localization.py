@@ -44,19 +44,20 @@ def resolve_lang_by_label(label: str):
 # ---------------------------------------------------------
 # Загрузка строк выбранного языка
 # ---------------------------------------------------------
-def load_strings(lang: str):
-    """
-    Загружает JSON выбранного языка в STR.
-    """
+def load_strings(lang):
     global STR, CURRENT_LANG
 
-    CURRENT_LANG = lang
+    print(">>> load_strings called with:", lang)
+
     path = os.path.join(LOCALES_DIR, f"ensi_{lang}.json")
+    print(">>> loading file:", path)
 
     with open(path, "r", encoding="utf-8") as f:
         STR = json.load(f)
 
-    print("Загружены ключи:", STR.keys())
+    print(">>> STR loaded keys:", STR.keys())
+
+
 
 
 # ---------------------------------------------------------

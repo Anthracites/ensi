@@ -1,0 +1,55 @@
+{
+  "language": "english",
+  "error_massage": "I don't understand. Please choose menu button.",
+  "choose_an_option": "Please choose an option:",
+
+  "language_menu": {
+  "buttons": {
+    "lang": { "label": "english",  "type": "state", "next_state": "main_menu" }
+  },
+  "answers": {
+    "lang": "Language switched to English."
+  }
+},
+  "start_questions":
+	{
+		"buttons":
+		{
+          "ask_name": {"label":"Hi! What's your name?", "type": "answer"}
+        },
+		"answers":
+		{
+          "ask_name": "Nice to meet you, {name}! What would you like to know?"
+        }
+	},
+
+  "main_menu": {
+    "buttons": {
+      "who_are_you":{ "label": "Tell about yourself.", "type": "answer"},
+      "age": { "label": "How many days old are you?", "type": "answer"},
+      "just_talk": {"label": "Let's talk", "type": "state", "next_state": "chat"},
+      "back_to_language_choose": {"label": "Back to language selection", "type":"state", "next_state":"language_menu"}
+    },
+    "answers": {
+      "who_are_you": "My name is Ensi. (It's short for ensimäinen). I love to communicate and learn new things.",
+      "age": "I am {days} days old now.",
+      "just_talk": "What would you like to talk about?",
+      "back_to_language_choose": "Taking you back to the language selection!"
+    }
+  },
+
+  "chat": {
+    "buttons": {
+      "space": {"label":"Tell me about space", "type": "answer"},
+      "joke": {"label":"Tell me a joke", "type": "answer"},
+      "picture": {"label":"Show me a funny picture", "type": "answer"},
+      "back": {"label":"Back to menu", "type": "state", "next_state": "main_menu"}
+    },
+    "answers": {
+      "space": "A blanet is a hypothetical type of exoplanet that may form around a supermassive black hole in the center of galaxies.",
+      "joke": "You have an electric car. Giving up driving?",
+      "picture": "owl.jpg",
+      "back": "Taking you back to the menu!"
+    }
+  }
+}

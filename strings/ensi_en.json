@@ -1,55 +1,70 @@
 {
   "language": "english",
-  "error_massage": "I don't understand. Please choose menu button.",
+  "error_massage": "I don't understand. Please choose a menu button.",
   "choose_an_option": "Please choose an option:",
+  "no_subscriptions": "You have no subscriptions yet.",
 
   "language_menu": {
-  "buttons": {
-    "lang": { "label": "english",  "type": "state", "next_state": "main_menu" }
+    "buttons": {
+      "lang": {
+        "label": "english",
+        "type": "state",
+        "next_state": "main_menu"
+      }
+    },
+    "answers": {
+      "lang": "Language switched to English."
+    }
   },
-  "answers": {
-    "lang": "Language switched to English."
-  }
-},
-  "start_questions":
-	{
-		"buttons":
-		{
-          "ask_name": {"label":"Hi! What's your name?", "type": "answer"}
-        },
-		"answers":
-		{
-          "ask_name": "Nice to meet you, {name}! What would you like to know?"
-        }
-	},
+
+  "start_questions": {
+    "buttons": {
+      "ask_name": {
+        "label": "Hi! What's your name?",
+        "type": "answer"
+      }
+    },
+    "answers": {
+      "ask_name": "Nice to meet you, {name}! What would you like to know?"
+    }
+  },
 
   "main_menu": {
     "buttons": {
-      "who_are_you":{ "label": "Tell about yourself.", "type": "answer"},
-      "age": { "label": "How many days old are you?", "type": "answer"},
-      "just_talk": {"label": "Let's talk", "type": "state", "next_state": "chat"},
-      "back_to_language_choose": {"label": "Back to language selection", "type":"state", "next_state":"language_menu"}
+      "help": { "label": "Help", "type": "answer" },
+      "list": { "label": "My subscriptions", "type": "answer" },
+      "subscribe": { "label": "Subscribe", "type": "state", "next_state": "subscribe" },
+      "unsubscribe": { "label": "Unsubscribe", "type": "state", "next_state": "unsubscribe" },
+      "back_to_language_choose": {"label": "Language selection", "type": "state", "next_state": "language_menu"
+      }
     },
     "answers": {
-      "who_are_you": "My name is Ensi. (It's short for ensimäinen). I love to communicate and learn new things.",
-      "age": "I am {days} days old now.",
-      "just_talk": "What would you like to talk about?",
+      "help": "Instructions.\nHow it works:\nInstruction instruction instruction instruction.",
+      "list": "Your subscriptions:",
       "back_to_language_choose": "Taking you back to the language selection!"
     }
   },
 
-  "chat": {
+  "subscribe": {
     "buttons": {
-      "space": {"label":"Tell me about space", "type": "answer"},
-      "joke": {"label":"Tell me a joke", "type": "answer"},
-      "picture": {"label":"Show me a funny picture", "type": "answer"},
-      "back": {"label":"Back to menu", "type": "state", "next_state": "main_menu"}
+      "confirm_subscribe": { "label": "Subscribe", "type": "answer" },
+      "cancel": { "label": "Cancel", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
-      "space": "A blanet is a hypothetical type of exoplanet that may form around a supermassive black hole in the center of galaxies.",
-      "joke": "You have an electric car. Giving up driving?",
-      "picture": "owl.jpg",
-      "back": "Taking you back to the menu!"
+      "subscribe": "Enter the group name (in format @groupname) to subscribe.",
+      "confirm_subscribe": "You subscribed on {name} ",
+      "cancel": "Action cancelled."
+    }
+  },
+
+  "unsubscribe": {
+    "buttons": {
+      "confirm_unsubscribe": { "label": "Unsubscribe", "type": "answer" },
+      "cancel": { "label": "Cancel", "type": "state", "next_state": "main_menu" }
+    },
+    "answers": {
+      "confirm_unsubscribe": "Enter the subscription number from the list to unsubscribe.",
+      "cancel": "Action cancelled."
     }
   }
 }

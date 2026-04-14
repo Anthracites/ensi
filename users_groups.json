@@ -1,0 +1,14 @@
+{
+  "subscriptions": {
+    "507599750": [
+      {
+        "group": "@dogs",
+        "sensitivity": "average"
+      },
+      {
+        "group": "@cats",
+        "sensitivity": "average"
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "language": "русский",
+  "error_massage": "Не понимаю. Нажми кнопку из меню",
+  "choose_an_option": "Нажми кнопку из меню",
+  "no_subscriptions": "У Вас пока нет подписок.",
+
+  "language_menu": {
+    "buttons": {
+      "lang": {"label": "русский", "type": "state", "next_state": "main_menu"}
+    },
+    "answers": {"lang": "Язык переключен на русский."}
+  },
+
+  "start_questions": {
+    "buttons": {
+      "ask_name": {
+        "label": "Привет! Как тебя зовут?",
+        "type": "answer"
+      }
+    },
+    "answers": {
+      "ask_name": "Приятно познакомиться, {name}! Что ты хотел бы узнать?"
+    }
+  },
+
+  "main_menu": {
+    "buttons": {
+      "help": { "label": "Помощь", "type": "answer" },
+      "list": { "label": "Мои подписки", "type": "answer" },
+      "subscribe": { "label": "Подписаться", "type": "state", "next_state": "subscribe" },
+      "unsubscribe": { "label": "Отписаться", "type": "state", "next_state": "unsubscribe" },
+      "back_to_language_choose": {"label": "Вернуться к выбору языка", "type": "state", "next_state": "language_menu"}
+    },
+    "answers": {
+      "help": "Инструкции.\nКак это работает\nИнструкция инструкция инструкция инструкция инструкция инструкция инструкция инструкция инструкция инструкция",
+      "list": "Список подписок:",
+      "back_to_language_choose": "Возвращаеся к выбору языка"
+    }
+  },
+
+  "subscribe": {
+    "buttons": {
+      "confirm_subscribe": { "label": "Подписать", "type": "answer" },
+      "cancel": { "label": "Отмена", "type": "state", "next_state": "main_menu" }
+    },
+    "answers": {
+      "confirm_subscribe": "Введите название группы (в формате @groupname), чтобы подписаться.",
+      "cancel": "Действие отменено."
+    }
+  },
+
+  "unsubscribe": {
+    "buttons": {
+      "confirm_unsubscribe": { "label": "Отписать", "type": "answer" },
+      "cancel": { "label": "Отмена", "type": "state", "next_state": "main_menu" }
+    },
+    "answers": {
+      "confirm_unsubscribe": "Введите номер группы из списка, чтобы отписаться.",
+      "cancel": "Действие отменено."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "@cats",
+      "title": "Кошки",
+      "description": "Все о котиках",
+      "default_sensitivity": "average"
+    },
+    {
+      "name": "@dogs",
+      "title": "Собаки",
+      "description": "Новости собачьего мира",
+      "default_sensitivity": "low"
+    },
+    {
+      "name": "@finance",
+      "title": "Финансы",
+      "description": "Курс валют, аналитика",
+      "default_sensitivity": "high"
+    },
+    {
+      "name": "@dev",
+      "title": "Разработка",
+      "description": "Python, Telegram API, боты",
+      "default_sensitivity": "average"
+    }
+  ]
+}
