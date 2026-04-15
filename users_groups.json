@@ -2,11 +2,11 @@
   "subscriptions": {
     "507599750": [
       {
-        "group": "@dogs",
+        "group": "@cats",
         "sensitivity": "average"
       },
       {
-        "group": "@cats",
+        "group": "@dogs",
         "sensitivity": "average"
       }
     ]

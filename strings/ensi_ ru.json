@@ -40,18 +40,19 @@
 
   "subscribe": {
     "buttons": {
-      "confirm_subscribe": { "label": "Подписать", "type": "answer" },
       "cancel": { "label": "Отмена", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
-      "confirm_subscribe": "Введите название группы (в формате @groupname), чтобы подписаться.",
+      "request_subscribe": "Введите название группы (в формате @groupname), чтобы подписаться.",
+      "confirm_subscribe": "Вы успешно подписаны на группу {name}",
+      "error_subscribe": "Группа не найдена или неправильно введено название.",
+      "error_subscribe_duble_request": "Вы уже подписаны на группу {name}.",
       "cancel": "Действие отменено."
     }
   },
 
   "unsubscribe": {
     "buttons": {
-      "confirm_unsubscribe": { "label": "Отписать", "type": "answer" },
       "cancel": { "label": "Отмена", "type": "state", "next_state": "main_menu" }
     },
     "answers": {

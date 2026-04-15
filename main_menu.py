@@ -91,7 +91,7 @@ class MainMenu:
         if next_state == STATE_SUBSCRIBE:
             user_state[user_id] = STATE_SUBSCRIBE
             await update.message.reply_text(
-                t("subscribe.answers.confirm_subscribe"),
+                t("subscribe.answers.request_subscribe"),
                 reply_markup=build_keyboard("subscribe")
             )
             return
@@ -143,41 +143,50 @@ class MainMenu:
     # СОСТОЯНИЕ: ПОДПИСКА
     # -----------------------------
     async def handle_subscribe(self, update, user_id, text):
-        result = subscribe_user(user_id, text.strip())
-
-        if result == "exists":
-            await update.message.reply_text("Вы уже подписаны.")
+        user_input = text
+        if user_input == t("subscribe.buttons.cancel"):
+            user_state[user_id] = "main_menu"
+            await update.message.reply_text(t("choose_an_option"), reply_markup=build_keyboard("main_menu"))
             return
-
-        if result == "group_not_found":
-            await update.message.reply_text("Группа не найдена.")
-            return
-
-        await update.message.reply_text("Вы успешно подписаны!")
-        user_state[user_id] = "main_menu"
+        else:
+            result = subscribe_user(user_id, user_input)
+            if result == "exists":
+                await update.message.reply_text(t("subscribe.answers.error_subscribe_duble_request", name = user_input))
+                return
+            if result == "group_not_found":
+                await update.message.reply_text(t("subscribe.answers.error_subscribe"))
+                return
+        await update.message.reply_text(t("subscribe.answers.confirm_subscribe", name = user_input))
+        user_state[user_id] = STATE_SUBSCRIBE
 
 
     # -----------------------------
     # СОСТОЯНИЕ: ОТПИСКА
     # -----------------------------
     async def handle_unsubscribe(self, update, user_id, text):
-        try:
-            index = int(text) - 1
-        except:
-            await update.message.reply_text("Введите номер.")
+        user_input = text
+        if user_input == t("subscribe.buttons.cancel"):
+            user_state[user_id] = "main_menu"
+            await update.message.reply_text(t("choose_an_option"), reply_markup=build_keyboard("main_menu"))
             return
+        else:
+            try:
+                index = int(text) - 1
+            except:
+                await update.message.reply_text("Введите номер.")
+                return
 
-        subs = get_user_subscriptions(user_id)
+            subs = get_user_subscriptions(user_id)
 
-        if index < 0 or index >= len(subs):
-            await update.message.reply_text("Неверный номер.")
-            return
+            if index < 0 or index >= len(subs):
+                await update.message.reply_text("Неверный номер.")
+                return
 
-        group_name = subs[index]["group"]
-        unsubscribe_user(user_id, group_name)
+            group_name = subs[index]["group"]
+            unsubscribe_user(user_id, group_name)
 
-        await update.message.reply_text(f"Вы отписаны от {group_name}.")
-        user_state[user_id] = "main_menu"
+            await update.message.reply_text(f"Вы отписаны от {group_name}.")
+            user_state[user_id] = STATE_UNSUBSCRIBE
 
 
     # -----------------------------

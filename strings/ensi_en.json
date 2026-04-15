@@ -47,19 +47,19 @@
 
   "subscribe": {
     "buttons": {
-      "confirm_subscribe": { "label": "Subscribe", "type": "answer" },
       "cancel": { "label": "Cancel", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
-      "subscribe": "Enter the group name (in format @groupname) to subscribe.",
+      "request_subscribe": "Enter the group name (in format @groupname) to subscribe.",
       "confirm_subscribe": "You subscribed on {name} ",
+      "error_subscribe": "Group not found or name entered incorrectly.",
+      "error_subscribe_duble_request": "You already subscribed on {name}.",
       "cancel": "Action cancelled."
     }
   },
 
   "unsubscribe": {
     "buttons": {
-      "confirm_unsubscribe": { "label": "Unsubscribe", "type": "answer" },
       "cancel": { "label": "Cancel", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
