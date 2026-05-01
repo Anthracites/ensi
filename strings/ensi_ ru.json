@@ -1,6 +1,6 @@
 {
   "language": "русский",
-  "error_massage": "Не понимаю. Нажми кнопку из меню",
+  "error_message": "Не понимаю. Нажми кнопку из меню",
   "choose_an_option": "Нажми кнопку из меню",
   "no_subscriptions": "У Вас пока нет подписок.",
 
@@ -34,13 +34,13 @@
     "answers": {
       "help": "Инструкции.\nКак это работает\nИнструкция инструкция инструкция инструкция инструкция инструкция инструкция инструкция инструкция инструкция",
       "list": "Список подписок:",
-      "back_to_language_choose": "Возвращаеся к выбору языка"
+      "back_to_language_choose": "Возвращаюсь к выбору языка"
     }
   },
 
   "subscribe": {
     "buttons": {
-      "cancel": { "label": "Отмена", "type": "state", "next_state": "main_menu" }
+      "cancel": { "label": "Вернуться в главное меню", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
       "request_subscribe": "Введите название группы (в формате @groupname), чтобы подписаться.",
@@ -53,10 +53,10 @@
 
   "unsubscribe": {
     "buttons": {
-      "cancel": { "label": "Отмена", "type": "state", "next_state": "main_menu" }
+      "cancel": { "label": "Вернуться в главное меню", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
-      "confirm_unsubscribe": "Введите номер группы из списка, чтобы отписаться.",
+      "request_unsubscribe": "Введите номер группы из списка, чтобы отписаться.",
       "cancel": "Действие отменено."
     }
   }

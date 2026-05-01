@@ -1,6 +1,6 @@
 {
   "language": "english",
-  "error_massage": "I don't understand. Please choose a menu button.",
+  "error_message": "I don't understand. Please choose a menu button.",
   "choose_an_option": "Please choose an option:",
   "no_subscriptions": "You have no subscriptions yet.",
 
@@ -47,7 +47,7 @@
 
   "subscribe": {
     "buttons": {
-      "cancel": { "label": "Cancel", "type": "state", "next_state": "main_menu" }
+      "cancel": { "label": "Back to main menu", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
       "request_subscribe": "Enter the group name (in format @groupname) to subscribe.",
@@ -60,10 +60,10 @@
 
   "unsubscribe": {
     "buttons": {
-      "cancel": { "label": "Cancel", "type": "state", "next_state": "main_menu" }
+      "cancel": { "label": "Back to main menu", "type": "state", "next_state": "main_menu" }
     },
     "answers": {
-      "confirm_unsubscribe": "Enter the subscription number from the list to unsubscribe.",
+      "request_unsubscribe": "Enter the subscription number from the list to unsubscribe.",
       "cancel": "Action cancelled."
     }
   }

@@ -1,3 +1,7 @@
+import threading
+from aiohttp import web
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
+
 from telegram import Update, ReplyKeyboardRemove
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, MessageHandler,
@@ -67,6 +71,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
+    if user_id not in user_state:
+        user_state[user_id] = "main_menu"
+
+    state = user_state[user_id]
+
     user_state[user_id] = STATE_LANGUAGE
     await update.message.reply_text(
         "👉 🌍💬",
@@ -79,6 +88,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # -----------------------------
 async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+
+    from localization import STR, CURRENT_LANG, load_strings
+    # --- Если язык не выбран, ставим язык по умолчанию и состояние main_menu ---
+    if user_id not in user_lang:
+        user_lang[user_id] = "en"
+        load_strings("en")
+        user_state[user_id] = "main_menu"
+
+    lang = user_lang.get(user_id, "en")
+
+    if not STR or CURRENT_LANG != lang:
+        load_strings(lang)
+
     text = update.message.text.strip()
     state = user_state.get(user_id, "main_menu")
 
@@ -126,9 +148,18 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await menu.handle(update, user_id, text, state)
 
 
-# -----------------------------
-# MAIN
-# -----------------------------
+# --- ВСТАВЛЯЕМ HTTP-СЕРВЕР СЮДА ---
+async def health(request):
+    return web.Response(text="OK")
+
+def run_web():
+    app = web.Application()
+    app.router.add_get("/", health)
+    web.run_app(app, port=8080)
+
+threading.Thread(target=run_web, daemon=True).start()
+# --- КОНЕЦ ВСТАВКИ ---
+
 def main():
     print("Создаю приложение...")
 
@@ -143,3 +174,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

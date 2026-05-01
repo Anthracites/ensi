@@ -51,14 +51,15 @@ class MainMenu:
     # ОБРАБОТКА МЕНЮ
     # -----------------------------
     async def handle_menu(self, update, user_id, text, section):
-        key, info = resolve_button_key(section, text)
+        menu_section = "main_menu"
+        key, info = resolve_button_key(menu_section, text)
 
         if not key:
-            await update.message.reply_text(STR.get("error_massage"))
+            await update.message.reply_text(t("error_message"))
             return
 
         if info["type"] == "answer":
-            return await self.handle_answer(update, user_id, key, section)
+            return await self.handle_answer(update, user_id, key, menu_section)
 
         if info["type"] == "state":
             return await self.handle_state(update, user_id, info)
@@ -173,7 +174,7 @@ class MainMenu:
             try:
                 index = int(text) - 1
             except:
-                await update.message.reply_text("Введите номер.")
+                await update.message.reply_text(t("subscribe.answers.error_subscribe"))
                 return
 
             subs = get_user_subscriptions(user_id)
